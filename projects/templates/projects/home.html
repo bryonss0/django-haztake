@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="row justify-content-center my-3">
+      <div class="col-5">
+        <img src="{% static 'img/labpacking.png' %}" class="img-fluid">
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-9 text-center">
+        <h2 class="mt-5">HazTake can create shipping papers and package your
+          hazardous chemicals and waste in compliance with DOT regulations,
+          and arrange transportation to a TSDF for recycling or proper disposal.</h2>
+      </div>
+    </div>
+
+    <h2 class="mt-5">How much hazardous waste do you need us to take?</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{% url 'project_detail' project.pk %}">
+      <h3>{{ project.title }}</h3>
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+      <p>{{ project.description }}</p>
+    </a>
+    {% else %}
+    <h3>{{ project.title }}</h3>
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    <p>{{ project.description }}</p>
+    {% endif %}
+
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

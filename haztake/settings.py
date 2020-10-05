@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'haz',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,9 @@ ROOT_URLCONF = 'haztake.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': [],
+        'DIRS': [BASE_DIR / 'haztake/templates/'],
+        #'DIRS': [BASE_DIR / 'projects/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
